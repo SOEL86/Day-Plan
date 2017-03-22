@@ -12,18 +12,30 @@
 		<author href="https://github.com/SOEL86" email="mamorleyclarke@gmail.com">
 			Michael Alex Morley-Clarke
 		</author>
-
+		
 		<icon src="icon.png" />
-
 		<splash src="splash.png" />
 
-		<icon src="art/ldpi.png" platform="android" qualifier="ldpi" />
-		<icon src="art/mdpi.png" platform="android" qualifier="mdpi" />
-		<icon src="art/hdpi.png" platform="android" qualifier="hdpi" />
-		<icon src="art/xhdpi.png" platform="android" qualifier="xhdpi" />
-		<icon src="art/xxhdpi.png" platform="android" qualifier="xxhdpi" />
+		<platform name="android">
+  			<allow-intent href="market:*" /> 
+			<icon src="icon.png" qualifier="nodpi" />
+			<icon src="art/ldpi.png" qualifier="ldpi" />
+			<icon src="art/mdpi.png" qualifier="mdpi" />
+			<icon src="art/hdpi.png" qualifier="hdpi" />
+			<icon src="art/xhdpi.png" qualifier="xhdpi" />
+			<icon src="art/xxhdpi.png" qualifier="xxhdpi" />
+			<icon src="art/xxxhdpi.png" qualifier="xxxhdpi" />
+			
+			<splash src="splash.png" qualifier="ldpi" />
+			<splash src="splash.png" qualifier="mdpi" />
+			<splash src="splash.png" qualifier="hdpi" />
+			<splash src="splash.png" qualifier="xhdpi" />
+			<splash src="splash.png" qualifier="fr-xhdpi" />
+			<splash src="splash.png" qualifier="port-xxhdpi" />
+			<splash src="splash.png" qualifier="land-xxhdpi" />
+		</platform>
 
-		<platform name="android" />
+
 
 
 
