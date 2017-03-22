@@ -15,4 +15,8 @@
 
 		<platform name="android" />
 
+		<icon src="art/icon.png" />
+
+		<splash src="art/bothVertical.png" />
+		
 	</widget>
