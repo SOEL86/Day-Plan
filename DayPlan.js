@@ -170,7 +170,7 @@ Activity.prototype.enableLengthControl = function () {
 				activity.ele.css("height", "");
 			} else {
 				activity.setLength(1 + addedLength);
-				activity.ele.css("height", (4.16 + (addedLength * 4.16)) + "%");
+				activity.ele.css("height", (4.1666666667 + (addedLength * 4.1666666667)) + "%");
 			}
 
 			//single step hide/show

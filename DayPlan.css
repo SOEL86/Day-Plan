@@ -24,6 +24,8 @@ body {
 	background: url(splash.png);
 	background-size: cover;
 	background-position: center;
+	border-top:1px solid black;
+	border-left:1px solid black;
 }
 #mc-clock {
 	position: relative;
@@ -64,13 +66,14 @@ body {
 	width: 100%;
 }
 .mc-hour {
-	height: 4.16%;
+	height: 4.1666666667%;
 	width: 100%;
 	text-align: center;
 	float: left;
 	box-shadow: 0;
 	cursor: pointer;
-	border: 1px solid black;
+	border-bottom: 1px solid black;
+	border-right:1px solid black;
 	position: relative;
 }
 .mc-hour > div {
