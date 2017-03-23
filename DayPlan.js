@@ -85,6 +85,12 @@ var DayPlan = function (item) {
 	date = new Date();
 	currentDate = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
 	
+	if (date.getHours() > 12) {
+		$('html, body').animate({
+			scrollTop: window.innerHeight
+		});
+	}
+	
 	//if the app saved the date last time
 	if (localStorage.getItem("date")) {
 		//if it saved it on a different day than today, we want to clear all local storage, including scheduled activity states
