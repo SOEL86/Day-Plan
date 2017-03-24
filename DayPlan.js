@@ -85,12 +85,6 @@ var DayPlan = function (item) {
 	date = new Date();
 	currentDate = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
 	
-	if (date.getHours() > 12) {
-		$('html, body').animate({
-			scrollTop: window.innerHeight
-		});
-	}
-	
 	//if the app saved the date last time
 	if (localStorage.getItem("date")) {
 		//if it saved it on a different day than today, we want to clear all local storage, including scheduled activity states
@@ -115,6 +109,9 @@ var DayPlan = function (item) {
 	//we create our clock last because it relies on our html being present to find its elements using jquery
 	mcClock = new Clock();
 	
+	$('html, body').animate({
+		scrollTop: (date.getHours() * 80) - (window.innerHeight / 4)
+	});
 };
 
 //after the controls are added to an activity, we want to find them
