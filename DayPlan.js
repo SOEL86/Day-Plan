@@ -126,10 +126,11 @@ Activity.prototype.getLengthControl = function () {
 Activity.prototype.enableLengthControl = function () {
 	var activity = this,
 		//an interval constant used by the draggable object
-		ivl = window.innerHeight / 12,
+		ivl = 80,
 		//defaulting two variables for not sure why
 		addedLength = 0,
-		previousAddedLength = 0;
+		previousAddedLength = 0,
+		maxLength = activity.getMaxLength();
 	
 	//this is our controller
 	Draggable.create(this.getLengthControl(), {
@@ -143,12 +144,13 @@ Activity.prototype.enableLengthControl = function () {
 		onRelease: function () {
 			$("#mc-master").css("pointer-events", "");
 			localStorage.setItem("htmlString", $("#mc-master").html());
+			maxLength = activity.getMaxLength();
 		},
 		//when the user drags, we may need to hide or show elements, and change their data attributes
 		liveSnap: function (endValue) {
 
 			//real change, absolute change, an iterator, current element's max length
-			var change, absChange, itr, maxLength = activity.getMaxLength();
+			var change, absChange, itr;
 
 			//store and calculate old and new addedLength values
 			previousAddedLength = addedLength;
@@ -176,7 +178,7 @@ Activity.prototype.enableLengthControl = function () {
 				activity.ele.css("height", "");
 			} else {
 				activity.setLength(1 + addedLength);
-				activity.ele.css("height", (4.1666666667 + (addedLength * 4.1666666667)) + "%");
+				activity.ele.css("height", (80 + (addedLength * 80)) + "px");
 			}
 
 			//single step hide/show
@@ -223,6 +225,7 @@ Activity.prototype.enableLengthControl = function () {
 //we need a function to bind the click-to-activate feature
 Activity.prototype.enableClickActivation = function () {
 	var hour = this;
+
 	this.ele.on("click", function () {
 		$(this).off("click");
 		hour.activate();
