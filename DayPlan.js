@@ -107,7 +107,7 @@ var DayPlan = function (item) {
 	});
 	
 	//we create our clock last because it relies on our html being present to find its elements using jquery
-	//mcClock = new Clock();
+	mcClock = new Clock();
 	
 	$('html, body').animate({
 		scrollTop: (date.getHours() * 80) - (windowHeight / 4)
