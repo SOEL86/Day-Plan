@@ -79,7 +79,7 @@ var Activity = function (int, obj) {
 //This object initializes the entire app.
 var DayPlan = function (item) {
 	
-	var currentDate, mcClock;
+	var currentDate, mcClock, windowHeight = window.innerHeight;
 	
 	//what day is it?
 	date = new Date();
@@ -107,10 +107,10 @@ var DayPlan = function (item) {
 	});
 	
 	//we create our clock last because it relies on our html being present to find its elements using jquery
-	mcClock = new Clock();
+	//mcClock = new Clock();
 	
 	$('html, body').animate({
-		scrollTop: (date.getHours() * 80) - (window.innerHeight / 4)
+		scrollTop: (date.getHours() * 80) - (windowHeight / 4)
 	});
 };
 
@@ -443,3 +443,7 @@ Activity.prototype.deactivate = function () {
 	localStorage.setItem("htmlString", $("#mc-master").html());
 
 };
+
+$(document).ready(function () {
+	var dayPlan = new DayPlan('.mc-hour');
+});
