@@ -110,7 +110,7 @@ var DayPlan = function (item) {
 	mcClock = new Clock();
 	
 	$('html, body').animate({
-		scrollTop: (date.getHours() * 80) - (windowHeight / 4)
+		scrollTop: (date.getHours() * 40) - (windowHeight / 4)
 	});
 };
 
@@ -123,7 +123,7 @@ Activity.prototype.getLengthControl = function () {
 Activity.prototype.enableLengthControl = function () {
 	var activity = this,
 		//an interval constant used by the draggable object
-		ivl = 80,
+		ivl = 40,
 		//defaulting two variables for not sure why
 		addedLength = 0,
 		previousAddedLength = 0,
@@ -136,12 +136,12 @@ Activity.prototype.enableLengthControl = function () {
 		//we need to stop the mouse interacting with the other objects when we drag
 		onPress: function () {
 			$("#mc-master").css("pointer-events", "none");
+			maxLength = activity.getMaxLength();
 		},
 		//finally, we need reenable the mouse events and save the new state to local storage
 		onRelease: function () {
 			$("#mc-master").css("pointer-events", "");
 			localStorage.setItem("htmlString", $("#mc-master").html());
-			maxLength = activity.getMaxLength();
 		},
 		//when the user drags, we may need to hide or show elements, and change their data attributes
 		liveSnap: function (endValue) {
@@ -175,7 +175,7 @@ Activity.prototype.enableLengthControl = function () {
 				activity.ele.css("height", "");
 			} else {
 				activity.setLength(1 + addedLength);
-				activity.ele.css("height", (80 + (addedLength * 80)) + "px");
+				activity.ele.css("height", (40 + (addedLength * 40)) + "px");
 			}
 
 			//single step hide/show
